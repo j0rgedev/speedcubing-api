@@ -1,6 +1,7 @@
 package com.george.speedcubingapi.cfop.service;
 
 import com.george.speedcubingapi.cfop.entity.F2lModel;
+import static com.george.speedcubingapi.cfop.entity.F2lModel.F2lAlgorithmCase;
 import com.george.speedcubingapi.cfop.repository.F2lRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,7 @@ public class F2lService {
         return f2lRepository.findByName(name.toUpperCase());
     }
 
-    public List<F2lModel.AlgorithmCase> getAllCasesBySubset(String subset) {
+    public List<F2lAlgorithmCase> getAllCasesBySubset(String subset) {
         if (!isSubsetValid(subset)) throw new RuntimeException("Invalid subset");
 
         return f2lRepository.findAllCasesBySubset(subset);

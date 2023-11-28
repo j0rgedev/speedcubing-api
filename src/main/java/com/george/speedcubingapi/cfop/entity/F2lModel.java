@@ -21,10 +21,10 @@ public class F2lModel {
     @Field("algorithm_name") private String algorithmName;
     @Field("algorithm_setup") private String algorithmSetup;
     @Field("algorithm_image") private String algorithmImage;
-    @Field("algorithm_cases") private List<AlgorithmCase> algorithmCases;
+    @Field("algorithm_cases") private List<F2lAlgorithmCase> f2lAlgorithmCases;
     @Field("subset_name") private String algorithmSubset;
 
-    public record AlgorithmCase(
+    public record F2lAlgorithmCase(
         @Field("case_name") String caseName,
         @Field("case_algorithm") String caseAlgorithm,
         @Field("case_view") String caseView,

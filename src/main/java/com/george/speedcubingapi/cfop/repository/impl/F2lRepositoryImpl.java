@@ -1,12 +1,13 @@
 package com.george.speedcubingapi.cfop.repository.impl;
 
+import static com.george.speedcubingapi.cfop.entity.F2lModel.F2lAlgorithmCase;
+
 import com.george.speedcubingapi.cfop.entity.F2lModel;
 import com.george.speedcubingapi.cfop.repository.F2lRepository;
 import com.george.speedcubingapi.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -53,10 +54,10 @@ public class F2lRepositoryImpl implements F2lRepository {
      * @return A list of F2lModel.AlgorithmCase objects representing the algorithm cases that belong to the specified subset
      */
     @Override
-    public List<F2lModel.AlgorithmCase> findAllCasesBySubset(String subset) {
+    public List<F2lAlgorithmCase> findAllCasesBySubset(String subset) {
         // Mongo query: db.getCollection('cfop_f2l').find({algorithmSubset: ${subset}})
         Criteria criteria = Criteria.where("algorithmSubset").is(subset);
-        return mongoTemplate.query(F2lModel.AlgorithmCase.class)
+        return mongoTemplate.query(F2lAlgorithmCase.class)
                 .matching(criteria)
                 .all();
     }

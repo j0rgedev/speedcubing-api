@@ -42,7 +42,7 @@ public class F2lController {
     }
 
     @GetMapping("/subsets/{subset}")
-    public ResponseEntity<List<F2lModel.AlgorithmCase>> getAllCasesBySubset(
+    public ResponseEntity<List<F2lModel.F2lAlgorithmCase>> getAllCasesBySubset(
             @PathVariable @NotNull @NotBlank String subset
     ) {
         return ResponseEntity.ok(f2lService.getAllCasesBySubset(subset));
