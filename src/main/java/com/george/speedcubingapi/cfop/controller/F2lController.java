@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/f2l")
+@RequestMapping("/cfop/f2l")
 public class F2lController {
 
     private final F2lService f2lService;
@@ -42,7 +42,7 @@ public class F2lController {
     }
 
     @GetMapping("/subsets/{subset}")
-    public ResponseEntity<List<F2lModel.F2lAlgorithmCase>> getAllCasesBySubset(
+    public ResponseEntity<List<F2lModel>> getAllCasesBySubset(
             @PathVariable @NotNull @NotBlank String subset
     ) {
         return ResponseEntity.ok(f2lService.getAllCasesBySubset(subset));

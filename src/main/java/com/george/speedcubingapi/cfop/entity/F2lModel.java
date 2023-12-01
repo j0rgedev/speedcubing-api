@@ -1,5 +1,6 @@
 package com.george.speedcubingapi.cfop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,12 @@ import java.util.List;
 @AllArgsConstructor
 public class F2lModel {
 
+    @JsonIgnore
     @Id @Field("_id")  private String algorithmId;
     @Field("algorithm_name") private String algorithmName;
     @Field("algorithm_setup") private String algorithmSetup;
     @Field("algorithm_image") private String algorithmImage;
-    @Field("algorithm_cases") private List<F2lAlgorithmCase> f2lAlgorithmCases;
+    @Field("algorithm_cases") private List<F2lAlgorithmCase> algorithmCases;
     @Field("subset_name") private String algorithmSubset;
 
     public record F2lAlgorithmCase(

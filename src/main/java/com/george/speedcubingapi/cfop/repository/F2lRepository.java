@@ -1,14 +1,18 @@
 package com.george.speedcubingapi.cfop.repository;
 
 import com.george.speedcubingapi.cfop.entity.F2lModel;
-
-import static com.george.speedcubingapi.cfop.entity.F2lModel.F2lAlgorithmCase;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface F2lRepository {
-    List<F2lModel> findAll();
-    List<String> findAllSubsets();
-    List<F2lAlgorithmCase> findAllCasesBySubset(String subset);
-    F2lModel findByName(String name);
+@Primary
+@Repository
+public interface F2lRepository extends MongoRepository<F2lModel, String>, CustomF2lRepository {
+
+    Optional<List<F2lModel>> findAllByAlgorithmSubsetIgnoreCase(String subset);
+    F2lModel findByAlgorithmName(String name);
+
 }
